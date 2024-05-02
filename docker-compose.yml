@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  database_associate:
+    image: postgres:alpine
+    container_name: database_associate
+    restart: always
+    ports:
+      - 5678:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=database_associate
+    volumes:
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata:
+    driver: local
