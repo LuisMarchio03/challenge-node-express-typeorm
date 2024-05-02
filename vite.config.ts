@@ -1,4 +1,8 @@
-import { defineConfig } from "vitest/config";
+/// <reference types="vitest" />
+import { defineConfig } from 'vite' 
+
 export default defineConfig({
-  test: {},
-});
+ test: {
+  setupFiles: ["./src/setupFile.ts"],
+ },
+})

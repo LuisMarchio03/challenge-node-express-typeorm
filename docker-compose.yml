@@ -1,16 +1,16 @@
 version: "3"
 
 services:
-  database_associate:
+  database_clients:
     image: postgres:alpine
-    container_name: database_associate
+    container_name: database_clients
     restart: always
     ports:
       - 5678:5432
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
-      - POSTGRES_DB=database_associate
+      - POSTGRES_DB=database_clients
     volumes:
       - pgdata:/data/postgres
 

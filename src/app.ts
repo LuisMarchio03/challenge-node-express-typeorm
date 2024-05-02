@@ -1,14 +1,14 @@
-import "reflect-metadata";
+import 'reflect-metadata';
 import "dotenv/config";
+
+import { connectToDatabase } from "./database";
+
 import cors from "cors";
 
 import express, { Request, Response, NextFunction } from "express";
 import "express-async-errors";
 
-
 // import { associateRoutes } from "./module/http/controllers/routes"
-import { connectToDatabase } from "./database";
-
 const app = express();
 
 const main = async () => {
