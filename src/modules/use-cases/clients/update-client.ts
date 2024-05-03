@@ -20,10 +20,10 @@ export class UpdateClientUseCase {
     tecl_telefone,
     tecl_uf
   }: UpdateClientUseCaseRequest): Promise<void> {
-    const clientsAlreadyExists = await this.clientRepository.listClient(tecl_id)
+    const clientsExists = await this.clientRepository.listClient(tecl_id)
 
-    if (clientsAlreadyExists) {
-      throw new Error('Client already exists')
+    if (!clientsExists) {
+      throw new Error('Client dont exists')
     }
 
     await this.clientRepository.update(tecl_id, {
