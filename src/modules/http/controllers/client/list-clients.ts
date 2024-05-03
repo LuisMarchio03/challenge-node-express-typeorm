@@ -5,8 +5,10 @@ import { CustomRequest } from 'utils/types'
 export class ListAllController {
   async handler(req: CustomRequest, res: Response) {
     try {
+      const { search } = req.query as { search: string };
+
       const listClientsUseCase = makeListClientsUseCase()
-      const clients = await listClientsUseCase.execute()
+      const clients = await listClientsUseCase.execute(search)
     
       return res.status(200).json({
         success: true,
