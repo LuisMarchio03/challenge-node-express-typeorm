@@ -34,8 +34,9 @@ export class ClientRepository implements IClientsRepository {
 
   async update(id: number, data: IClientUpdateDto): Promise<void> {
     const clientToUpdate = await this.repository.findOneByOrFail({ TECL_ID: id });
+    const update = this.mapDtoToClient(data);
     Object.assign(clientToUpdate, data);
-    await this.repository.save(clientToUpdate);
+    await this.repository.save(update);
   }
 
   async delete(id: number): Promise<void> {

@@ -24,6 +24,15 @@ export class UpdateController {
         tecl_telefone,
         tecl_uf
       } = updateBodySchema.parse(req.body)
+
+      console.log({
+        tecl_cidade,
+        tecl_endereco,
+        tecl_id,
+        tecl_nome,
+        tecl_telefone,
+        tecl_uf
+      })
     
       const updateClientUseCase = makeUpdateClientUseCase()
     
