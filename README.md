@@ -29,6 +29,8 @@
 
 ```bash
 npm install
+
+docker-compose up -d
 ```
 
 .env já está presente no projeto.
