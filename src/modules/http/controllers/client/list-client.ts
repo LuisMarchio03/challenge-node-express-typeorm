@@ -1,15 +1,31 @@
 import { Request, Response } from 'express'
 import { makeListClientUseCase } from '../../../use-cases/factories/make-list-client-use-case' 
 
+interface CustomRequest extends Request {
+  token?: string; 
+}
+
 export class ListController {
-  async handler(req: Request, res: Response) {
+  async handler(req: CustomRequest, res: Response) {
     try {
       const listClientUseCase = makeListClientUseCase()
       const client = await listClientUseCase.execute(parseInt(req?.params?.tecl_id))
     
-      return res.status(200).json(client)
+      return res.status(200).json({
+        success: true,
+        message: null,
+        data: client,
+        error: null,
+        token: req.token
+      })
     } catch (err: any) {
-      return res.status(400).json({ error: err.message })
+      return res.status(400).json({
+          success: false,
+          message: err.message,
+          data: null,
+          error: true,
+          token: req.token
+       })
     }
   }
 
