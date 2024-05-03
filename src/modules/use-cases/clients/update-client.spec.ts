@@ -14,7 +14,6 @@ describe('Update Client Use Case', () => {
 
   it('should be able to update Client', async () => {
     const created = await clientRepository.create({
-        tecl_id: 1,
         tecl_cidade: "Any city",
         tecl_endereco: "Any address",
         tecl_nome: "Any name",
