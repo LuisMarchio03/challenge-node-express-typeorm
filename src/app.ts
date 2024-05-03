@@ -8,7 +8,8 @@ import cors from "cors";
 import express, { Request, Response, NextFunction } from "express";
 import "express-async-errors";
 
-// import { associateRoutes } from "./module/http/controllers/routes"
+import { clientRoutes } from "./modules/http/controllers/routes"
+import { authMiddleware } from './middleware/auth.middleware';
 const app = express();
 
 const main = async () => {
@@ -22,7 +23,7 @@ main().catch(err => {
 
 app.use(express.json());
 app.use(cors());
-// app.use(associateRoutes);
+app.use(clientRoutes);
 
 app.use(
   (err: Error, request: Request, response: Response, next: NextFunction) => {
