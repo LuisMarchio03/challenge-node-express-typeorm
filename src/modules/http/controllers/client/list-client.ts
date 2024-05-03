@@ -8,8 +8,9 @@ interface CustomRequest extends Request {
 export class ListController {
   async handler(req: CustomRequest, res: Response) {
     try {
+      console.log(req?.params?.tecl_id)
       const listClientUseCase = makeListClientUseCase()
-      const client = await listClientUseCase.execute(parseInt(req?.params?.tecl_id))
+      const client = await listClientUseCase.execute(parseInt(req?.params?.id))
     
       return res.status(200).json({
         success: true,

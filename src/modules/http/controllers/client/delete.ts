@@ -8,7 +8,7 @@ export class DeleteController {
   async handler(req: CustomRequest, res: Response) {
     try {
       const deleteClientUseCase = makeDeleteClientUseCase()
-      await deleteClientUseCase.execute(parseInt(req?.params?.tecl_id))
+      await deleteClientUseCase.execute(parseInt(req?.params?.id))
     
       return res.status(200).json({
         success: true,
