@@ -2,9 +2,10 @@ import { Request, Response } from 'express'
 import z from 'zod'
 
 import { makeUpdateClientUseCase } from '../../../use-cases/factories/make-update-client-use-case' 
+import { CustomRequest } from 'utils/types'
 
 export class UpdateController {
-  async handler(req: Request, res: Response) {
+  async handler(req: CustomRequest, res: Response) {
     try {
       const updateBodySchema = z.object({
         tecl_id: z.number(),
@@ -35,9 +36,28 @@ export class UpdateController {
         tecl_uf
       })
     
-      return res.status(200).send()
+      return res.status(200).json({
+        success: true,
+        message: "Atualizado com sucesso!",
+        data: {
+          tecl_id,
+          tecl_nome,
+          tecl_cidade,
+          tecl_endereco,
+          tecl_telefone,
+          tecl_uf
+        },
+        error: null,
+        token: req.token
+      })
     } catch (err: any) {
-      return res.status(400).json({ error: err.message })
+      return res.status(400).json({ 
+          success: false,
+          message: err.message,
+          data: null,
+          error: true,
+          token: req.token
+       })
     }
   }
 
