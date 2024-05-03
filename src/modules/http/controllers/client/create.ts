@@ -9,7 +9,6 @@ export class CreateController {
   async handler(req: CustomRequest, res: Response) {
     try {
       const createBodySchema = z.object({
-        tecl_id: z.number(),
         tecl_nome: z.string(),
         tecl_endereco:z.string(),
         tecl_cidade:z.string(),
@@ -20,7 +19,6 @@ export class CreateController {
       const { 
         tecl_cidade,
         tecl_endereco,
-        tecl_id,
         tecl_nome,
         tecl_telefone,
         tecl_uf
@@ -31,7 +29,6 @@ export class CreateController {
       await createClientUseCase.execute({
         tecl_cidade,
         tecl_endereco,
-        tecl_id,
         tecl_nome,
         tecl_telefone,
         tecl_uf
@@ -41,7 +38,6 @@ export class CreateController {
         success: true,
         message: "Adicionado com sucesso!",
         data: {
-          tecl_id,
           tecl_nome,
           tecl_cidade,
           tecl_endereco,

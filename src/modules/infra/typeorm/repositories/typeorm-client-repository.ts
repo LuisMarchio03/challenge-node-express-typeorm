@@ -45,7 +45,6 @@ export class ClientRepository implements IClientsRepository {
 
   private mapDtoToClient(data: IClientCreateDto | IClientUpdateDto): Client {
     const newClient = new Client();
-    newClient.TECL_ID = data.tecl_id; // Assuming IDs are generated elsewhere
     newClient.TECL_NOME = data.tecl_nome;
     newClient.TECL_ENDERECO = data.tecl_endereco;
     newClient.TECL_CIDADE = data.tecl_cidade;

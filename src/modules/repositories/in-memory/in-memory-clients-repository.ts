@@ -13,7 +13,6 @@ export class InMemoryClientRepository implements IClientsRepository {
   async create({
     tecl_cidade,
     tecl_endereco,
-    tecl_id,
     tecl_nome,
     tecl_telefone,
     tecl_uf

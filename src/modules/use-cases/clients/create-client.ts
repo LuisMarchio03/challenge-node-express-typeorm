@@ -1,7 +1,6 @@
 import { IClientsRepository } from "../../repositories/client-repository"
 
 interface CreateClientUseCaseRequest {
-    tecl_id: number;
     tecl_nome: string;
     tecl_endereco: string;
     tecl_cidade: string;
@@ -24,7 +23,6 @@ export class CreateClientUseCase {
   async execute({
     tecl_cidade,
     tecl_endereco,
-    tecl_id,
     tecl_nome,
     tecl_telefone,
     tecl_uf
@@ -38,7 +36,6 @@ export class CreateClientUseCase {
     const client = await this.clientRepository.create({
         tecl_cidade,
         tecl_endereco,
-        tecl_id,
         tecl_nome,
         tecl_telefone,
         tecl_uf

@@ -14,7 +14,6 @@ describe("Create client use-case", () => {
 
     it('should be able to create client', async () => {
         const { tecl_nome, tecl_id } = await sut.execute({
-            tecl_id: 1,
             tecl_cidade: "Any city",
             tecl_endereco: "Any address",
             tecl_nome: "Any name",
@@ -28,7 +27,6 @@ describe("Create client use-case", () => {
 
     it('should be able to not create Associate if it already exists', async () => {
         const client = await sut.execute({
-            tecl_id: 1,
             tecl_cidade: "Any city",
             tecl_endereco: "Any address",
             tecl_nome: "Any name",
