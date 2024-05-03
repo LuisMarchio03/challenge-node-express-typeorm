@@ -5,19 +5,19 @@ export class Client extends BaseEntity {
     @PrimaryGeneratedColumn()
     TECL_ID: number;
   
-    @Column()
+    @Column("varchar")
     TECL_NOME: string;
   
-    @Column()
+    @Column("varchar")
     TECL_ENDERECO: string;
   
-    @Column()
+    @Column("varchar")
     TECL_CIDADE: string;
   
-    @Column()
+    @Column("varchar")
     TECL_UF: string;
   
-    @Column()
+    @Column("varchar")
     TECL_TELEFONE: string;
   
     @CreateDateColumn()
