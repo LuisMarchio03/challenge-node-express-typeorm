@@ -1,12 +1,12 @@
 version: "3"
 
 services:
-  database_clients:
+  database_clients_container:
     image: postgres:alpine
-    container_name: database_clients
+    container_name: database_clients_container
     restart: always
     ports:
-      - 5678:5432
+      - 2678:5432
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
